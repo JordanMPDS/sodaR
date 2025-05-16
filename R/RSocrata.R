@@ -153,7 +153,7 @@ fieldName <- function(humanName) {
 #' @export
 #' @author Hugh J. Devlin, Ph. D. \email{Hugh.Devlin@@cityofchicago.org}
 posixify <- function(x) {
-  x <- as.character(x)
+  x <- as.character(toupper(gsub("\\.","",x)))
   if (length(x)==0) return(x)
   
   ## Define regex patterns for short and long date formats (CSV) and ISO 8601 (JSON),  
