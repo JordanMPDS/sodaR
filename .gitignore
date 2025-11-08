@@ -3,12 +3,11 @@
 /.Rbuildignore.Rcheck
 /.README.md.html
 /.settings
-/sodaR.Rcheck
 /DESCRIPTION.Rcheck
 /out
 /RCheck
-/RSocrata_*.tar.gz
-/RSocrata.Rcheck
+/sodaR*.tar.gz
+/sodaR.Rcheck
 *.pdf
 *.Rproj
 *.Rproj.user
