@@ -29,7 +29,7 @@ logMsg <- function(s) {
 #' @author Tom Schenk Jr \email{tom.schenk@@cityofchicago.org}
 #' @noRd
 fetch_user_agent <- function() {
-  rSocrataVersion <- packageVersion("RSocrata")
+  rSocrataVersion <- packageVersion("sodaR")
   operatingSystem <- Sys.info()[["sysname"]]
   operatingSystemVersion <- paste(Sys.info()[["release"]], Sys.info()[["version"]])
   rVersion <- paste0(R.version$major, 

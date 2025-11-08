@@ -22,7 +22,6 @@ Authors@R:
     person("John", "Malc", role = "ctb"),
     person("Mark", "Silverber", role = "ctb"),
     person("Peter", "Schmeideskamp", role = "ctb"))
-Maintainer: "Jordan Martinetti" <jordan@jordanmartinetti.com>
 Depends:
     R (>= 3.3.0)
 Imports:
