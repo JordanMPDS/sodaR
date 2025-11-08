@@ -6,7 +6,7 @@ library(sodaR)
 library(httr)
 library(jsonlite)
 library(mime)
-library(plyr)
+library(data.table)
 
 ## Set credentials for testing private datasets and write functionality
 ## The related tests are not currently run due to a lack of vendor support, 
@@ -23,6 +23,3 @@ Sys.setenv(SOCRATA_PASSWORD="7vFDsGFDUG")
 ## Note: Run this to test as CRAN: Sys.setenv(NOT_CRAN=FALSE)
 
 test_check("sodaR")
-
-
-
