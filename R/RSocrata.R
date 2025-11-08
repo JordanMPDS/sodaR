@@ -153,7 +153,7 @@ fieldName <- function(humanName) {
 #' @export
 #' @author Hugh J. Devlin, Ph. D. \email{Hugh.Devlin@@cityofchicago.org}
 posixify <- function(x) {
-  x <- as.character(toupper(gsub("\\.","",x)))
+  x <- as.character(x)
   if (length(x)==0) return(x)
   
   ## Define regex patterns for short and long date formats (CSV) and ISO 8601 (JSON),  
@@ -167,18 +167,25 @@ posixify <- function(x) {
   patternJsonNoDecimal <- paste0("^[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}T",
                                  "[[:digit:]]{2}:[[:digit:]]{2}:[[:digit:]]{2}","$") # YYYY-MM-DDThh:mm:ss
   ## Find number of matches with grep
-  nMatchesShortCsv <- grepl(pattern = patternShortCsv, x)
-  nMatchesLongCsv <- grepl(pattern = patternLongCsv, x)
   nMatchesJsonDecimal <- grepl(pattern = patternJsonDecimal, x)
   nMatchesJsonNoDecimal <- grepl(pattern = patternJsonNoDecimal, x)
-  ## Parse as the most likely calendar date format. CSV short/long ties go to short format
-  if( any(nMatchesLongCsv == TRUE) ){
-    return(as.POSIXct(strptime(x, format="%m/%d/%Y %I:%M:%S %p"))) # long date-time format
-  }	else if ( any(nMatchesShortCsv == TRUE) ){
-    return(as.POSIXct(strptime(x, format="%m/%d/%Y"))) # short date format
-  } 
-  if( any(nMatchesJsonDecimal == TRUE) | any(nMatchesJsonNoDecimal == TRUE) ){
+  
+  ## Check JSON formats first (don't modify the string)
+  if(any(nMatchesJsonDecimal == TRUE) | any(nMatchesJsonNoDecimal == TRUE)) {
     return(as.POSIXct(x, format = "%Y-%m-%dT%H:%M:%S")) # JSON format
+  }
+  
+  ## For CSV formats, normalize by removing periods and uppercasing
+  x <- toupper(gsub("\\.","", x))
+  
+  nMatchesShortCsv <- grepl(pattern = patternShortCsv, x)
+  nMatchesLongCsv <- grepl(pattern = patternLongCsv, x)
+  
+  ## Parse as the most likely calendar date format
+  if(any(nMatchesLongCsv == TRUE)){
+    return(as.POSIXct(strptime(x, format="%m/%d/%Y %I:%M:%S %p"))) # long date-time format
+  } else if (any(nMatchesShortCsv == TRUE)){
+    return(as.POSIXct(strptime(x, format="%m/%d/%Y"))) # short date format
   } else {
     warning("Unable to properly format date field; formatted as character string.")
     return(x)

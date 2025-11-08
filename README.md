@@ -94,3 +94,7 @@ df_in <- data.frame(x,y)
 # Upload to Socrata
 write.socrata(df_in,datasetToAddToUrl,"UPSERT",socrataEmail,socrataPassword)
 ```
+
+## Acknowledgments
+
+sodaR is a fork of [RSocrata](https://github.com/Chicago/RSocrata), originally developed by Hugh Devlin, Tom Schenk Jr., and contributors at the City of Chicago. I am grateful for their work.
