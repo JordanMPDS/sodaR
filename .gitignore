@@ -3,6 +3,7 @@
 /.Rbuildignore.Rcheck
 /.README.md.html
 /.settings
+/sodaR.Rcheck
 /DESCRIPTION.Rcheck
 /out
 /RCheck

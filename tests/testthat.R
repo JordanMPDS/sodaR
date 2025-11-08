@@ -2,7 +2,7 @@
 ## LOAD REQUIRED LIBRARIES
 
 library(testthat)
-library(RSocrata)
+library(sodaR)
 library(httr)
 library(jsonlite)
 library(mime)
@@ -22,7 +22,7 @@ Sys.setenv(SOCRATA_PASSWORD="7vFDsGFDUG")
 ## Note: Run locally with `devtools::check()`
 ## Note: Run this to test as CRAN: Sys.setenv(NOT_CRAN=FALSE)
 
-test_check("RSocrata")
+test_check("sodaR")
 
 
 
