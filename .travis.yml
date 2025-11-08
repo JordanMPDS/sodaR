@@ -8,6 +8,7 @@ sudo: false
 language: r
 cache: packages
 r:
+  - 3.3.0
   - release
   - devel
 

@@ -95,6 +95,16 @@ df_in <- data.frame(x,y)
 write.socrata(df_in,datasetToAddToUrl,"UPSERT",socrataEmail,socrataPassword)
 ```
 
+## Compatibility
+
+RSocrata officially supports R >= 3.3.0. We test against:
+- R 3.3.0 (minimum supported)
+- Current R release
+- R-devel
+
+While I only guarantee compatibility with these versions, 
+the package may work with other versions.
+
 ## Acknowledgments
 
 sodaR is a fork of [RSocrata](https://github.com/Chicago/RSocrata), originally developed by Hugh Devlin, Tom Schenk Jr., and contributors at the City of Chicago. I am grateful for their work.
