@@ -1,21 +1,10 @@
+# Package currently under development to be re-listed on CRAN
+
 RSocrata
 ========
 
-[![Gitter](https://badges.gitter.im/repo.svg)](https://app.gitter.im/#/room/#Chicago_RSocrata:gitter.im)
 [![downloads](https://cranlogs.r-pkg.org/badges/RSocrata)](https://CRAN.R-project.org/package=RSocrata)
 [![cran version](https://www.r-pkg.org/badges/version/RSocrata)](https://CRAN.R-project.org/package=RSocrata)
-
-**Master** 
-
-Stable beta branch. Test about-to-be-released features in a stable pre-release build before it is submitted to CRAN.
-
-[![Linux build - Master](https://img.shields.io/travis/Chicago/RSocrata/master.svg?style=flat-square&label=Linux%20build)](https://app.travis-ci.com/Chicago/RSocrata)[![Windows build - Master](https://img.shields.io/appveyor/ci/tomschenkjr/RSocrata/master.svg?style=flat-square&label=Windows%20build)](https://ci.appveyor.com/project/tomschenkjr/rsocrata/branch/master)[![Coverage - Master](https://img.shields.io/coveralls/Chicago/RSocrata/master.svg?style=flat-square&label=Coverage)](https://coveralls.io/github/Chicago/RSocrata?branch=master)
-
-**Dev**
-
-"Nightly" alpha branch. Test the latest features and bug fixes -- enjoy at your own risk.
-
-[![Linux build - Dev](https://img.shields.io/travis/Chicago/RSocrata/dev.svg?style=flat-square&label=Linux%20build)](https://app.travis-ci.com/Chicago/RSocrata)[![Windows build - Dev](https://img.shields.io/appveyor/ci/tomschenkjr/RSocrata/dev.svg?style=flat-square&label=Windows%20build)](https://ci.appveyor.com/project/tomschenkjr/rsocrata/branch/dev)[![Coverage - Dev](https://img.shields.io/coveralls/Chicago/RSocrata/dev.svg?style=flat-square&label=Coverage)](https://coveralls.io/github/Chicago/RSocrata?branch=dev)
 
 A tool for downloading and uploading Socrata datasets
 -----------------------------------------------------
@@ -32,30 +21,20 @@ Upload data to Socrata data portals using "upsert" and "replace" methods.
 
 Use ```ls.socrata()``` to list all datasets available on a Socrata webserver.
 
-[testthat](https://cran.r-project.org/package=testthat) test coverage.
-
 ## Installation
 
 
-To get the current released version from CRAN:
+To get the current released version from CRAN download with your favorite package manager:
 
+Base
 ```R
-install.packages("RSocrata")
+install.packages("sodaR")
+```
+pak
+```R
+pak::pak("sodaR")
 ```
 
-The most recent beta with soon-to-be-released changes can be installed from GitHub:
-
-```R
-# install.packages("devtools")
-devtools::install_github("Chicago/RSocrata")
-```
-
-The "nightly" version with the most recent bug fixes and features is also available. This version is always an alpha and may contain significant bugs. You can install it from the `dev` branch from GitHub:
-
-```R
-# install.packages("devtools")
-devtools::install_github("Chicago/RSocrata", ref="dev")
-```
 
 Examples
 --------
@@ -115,11 +94,3 @@ df_in <- data.frame(x,y)
 # Upload to Socrata
 write.socrata(df_in,datasetToAddToUrl,"UPSERT",socrataEmail,socrataPassword)
 ```
-
-## Issues
-
-Please report issues, request enhancements or fork us at the [City of Chicago github](https://github.com/Chicago/RSocrata/issues).
-
-## Contributing
-
-If you would like to contribute to this project, please see the [contributing documentation](https://github.com/Chicago/RSocrata/blob/master/CONTRIBUTING.md) and the [product roadmap](https://github.com/Chicago/RSocrata/wiki/Roadmap#planned-releases).
