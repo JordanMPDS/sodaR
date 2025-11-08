@@ -161,8 +161,8 @@ test_that("Warn instead of fail if X-SODA2-* headers are missing", {
   # expect_warning(dfJson <- read.socrata(url_json_missing), info=msg)
   
   ## Check that the soda2 headers are present
-  expect_false(is.null(RSocrata:::getResponse(url_csv_complete)$headers[['x-soda2-types']]), info=msg)
-  expect_false(is.null(RSocrata:::getResponse(url_json_complete)$headers[['x-soda2-types']]), info=msg)
+  expect_false(is.null(sodaR:::getResponse(url_csv_complete)$headers[['x-soda2-types']]), info=msg)
+  expect_false(is.null(sodaR:::getResponse(url_json_complete)$headers[['x-soda2-types']]), info=msg)
   
   ## Check that they return results without warning
   expect_silent(df <- read.socrata(url_csv_complete))
@@ -200,8 +200,6 @@ test_that("read Socrata CSV as factor", {
 
 
 test_that("read Socrata JSON as default", {
-  
-  skip_on_cran()
   
   df <- read.socrata('https://soda.demo.socrata.com/resource/4334-bgaj.json')
   expect_equal("data.frame", class(df), label="class")
