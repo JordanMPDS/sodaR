@@ -330,7 +330,7 @@ getSodaTypes <- function(response) {
 #' }
 #' @importFrom httr parse_url build_url
 #' @importFrom mime guess_type
-#' @importFrom plyr rbind.fill
+#' @importFrom data.table rbindlist
 #' @export
 read.socrata <- function(url, app_token = NULL, email = NULL, password = NULL,
                          stringsAsFactors = FALSE) {
@@ -369,8 +369,12 @@ read.socrata <- function(url, app_token = NULL, email = NULL, password = NULL,
                    '$limit=50000&$offset=', nrow(result), sep='')
     response <- getResponse(query, email, password)
     page <- getContentAsDataFrame(response)
-    result <- rbind.fill(result, page) # accumulate
+    result <- rbindlist(list(result, page), fill = TRUE, use.names = TRUE) # accumulate
   }	
+  
+  # Convert result back to data.frame before returning
+  result <- as.data.frame(result)
+  
   if (is.null(dataTypes)) {
     warning("Dates and currency fields will be converted to character")
   } else {
