@@ -1,6 +1,6 @@
 # Package currently under development to be re-listed on CRAN
 
-RSocrata
+sodaR
 ========
 
 [![downloads](https://cranlogs.r-pkg.org/badges/RSocrata)](https://CRAN.R-project.org/package=RSocrata)
