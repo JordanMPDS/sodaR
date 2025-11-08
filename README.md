@@ -3,8 +3,8 @@
 sodaR
 ========
 
-[![downloads](https://cranlogs.r-pkg.org/badges/RSocrata)](https://CRAN.R-project.org/package=RSocrata)
-[![cran version](https://www.r-pkg.org/badges/version/RSocrata)](https://CRAN.R-project.org/package=RSocrata)
+[![downloads](https://cranlogs.r-pkg.org/badges/sodaR)](https://CRAN.R-project.org/package=sodaR)
+[![cran version](https://www.r-pkg.org/badges/version/sodaR)](https://CRAN.R-project.org/package=sodaR)
 
 A tool for downloading and uploading Socrata datasets
 -----------------------------------------------------
@@ -97,7 +97,7 @@ write.socrata(df_in,datasetToAddToUrl,"UPSERT",socrataEmail,socrataPassword)
 
 ## Compatibility
 
-RSocrata officially supports R >= 3.3.0. We test against:
+RSocrata officially supports R >= 3.3.0. I test against:
 - R 3.3.0 (minimum supported)
 - Current R release
 - R-devel
